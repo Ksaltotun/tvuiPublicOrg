@@ -99,6 +99,7 @@
     const listBox = document.querySelector('.boxForList');
     const mainPage = document.querySelector('.boxForButtons'); 
     const contextView = document.querySelector('.boxforDocViewContext');
+    const dateAndTime = document.querySelector('.timeAndDate');
    
     function fullingOrders(dataSet, suffix) {
        
@@ -141,6 +142,25 @@
         windowDoc.embedded = 'true';
         boxForDocView.appendChild(windowDoc);
     }
+
+    function showTime(){
+        const WEEK_DAYS = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'субота', 'воскресение'];
+        const MONTH = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
+        const date = new Date();
+        const dayOfWeek = date.getDay();
+        const month = date.getMonth();
+        const day = date.getDate();
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const seconds = date.getSeconds();
+        
+        dateAndTime.innerText = `сегодня ${WEEK_DAYS[dayOfWeek - 1]}, ${day} ${MONTH[month]}
+        Время: ${hours.toString().length > 1 ? hours : '0' + hours} : ${minutes.toString().length > 1 ? minutes : '0' + minutes } : ${seconds.toString().length > 1 ? seconds : '0' + seconds}
+        Хорошего дня!`;
+        setTimeout(showTime, 950);
+    }
+
+    showTime();
 
     
     function clickHandler({ target }) {

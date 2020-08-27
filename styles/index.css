@@ -206,3 +206,14 @@ section{
     width: 90vw;
     height: 90vh;
 }
+
+.timeAndDate{
+    position: fixed;
+    z-index: 2;
+    color: #3b444b;
+    width: 300px;
+    right: 100px;
+    top: 10px;
+    font-family: fantasy;
+    font-size: 25px;
+}
